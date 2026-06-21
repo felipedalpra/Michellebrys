@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base href="/cirurgia-mamaria/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Todos os resultados de mastopexia com e sem prótese da Dra. Michelle Brys — cirurgiã plástica em Porto Alegre.">
+    <title>Resultados | Dra. Michelle Brys | MB Signature</title>
+
+    <link rel="icon" type="image/jpeg" href="imagens/logo-vertical.jpeg">
+    <link rel="apple-touch-icon" href="imagens/logo-vertical.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Didact+Gothic&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --noir:       #0A0A0A;
+            --charcoal:   #1A1715;
+            --gold:       #BF9012;
+            --gold-light: #E0B83A;
+            --ivory:      #EDE8E0;
+            --font-id:    'Tenor Sans', sans-serif;
+            --font-disp:  'Cormorant Garamond', serif;
+            --font-body:  'Didact Gothic', sans-serif;
+            --px: 64px;
+        }
+        @media (max-width: 900px) { :root { --px: 32px; } }
+        @media (max-width: 600px) { :root { --px: 20px; } }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--noir);
+            color: var(--ivory);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ─────────────────────────────── */
+        header {
+            position: sticky; top: 0; z-index: 900;
+            background: rgba(10,10,10,.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(191,144,18,.12);
+            padding: 0 var(--px);
+            height: 70px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .hdr-logo { height: 34px; width: auto; object-fit: contain; display: block; }
+        .hdr-back {
+            font-family: var(--font-id); font-size: 9px; letter-spacing: .22em;
+            text-transform: uppercase; color: rgba(237,232,224,.5);
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+            transition: color .25s;
+        }
+        .hdr-back:hover { color: var(--gold); }
+        .hdr-back svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+        /* ── FLOATING WA ─────────────────────────── */
+        .wa-float {
+            position: fixed; bottom: 28px; right: 28px; z-index: 800;
+            display: flex; align-items: center; gap: 10px;
+            background: #25D366; color: #fff;
+            padding: 14px 22px; border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-id); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+            box-shadow: 0 6px 24px rgba(37,211,102,.45);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .wa-float:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(37,211,102,.55); }
+        .wa-float svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+        @media (max-width: 560px) {
+            .wa-float span { display: none; }
+            .wa-float { padding: 14px; border-radius: 50%; }
+        }
+
+        /* ── MAIN SECTION ────────────────────────── */
+        .res-section {
+            padding: 80px var(--px) 100px;
+            max-width: calc(1200px + var(--px) * 2);
+            margin: 0 auto;
+        }
+
+        .res-head { text-align: center; margin-bottom: 56px; }
+        .overline {
+            font-family: var(--font-id); font-size: 9px; letter-spacing: .32em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+            display: block;
+        }
+        .res-title {
+            font-family: var(--font-disp); font-weight: 300;
+            font-size: clamp(34px, 5vw, 58px); line-height: 1.15;
+            margin-bottom: 18px;
+        }
+        .res-intro {
+            font-family: var(--font-body); font-size: 15px;
+            color: rgba(237,232,224,.55); line-height: 1.75;
+            max-width: 540px; margin: 0 auto 8px;
+        }
+        .res-note {
+            font-family: var(--font-id); font-size: 9px; letter-spacing: .18em;
+            text-transform: uppercase; color: rgba(237,232,224,.28);
+            text-align: center; margin-bottom: 40px;
+        }
+
+        /* ── FILTER TABS ─────────────────────────── */
+        .gal-filter {
+            display: flex; gap: 8px; justify-content: center;
+            margin-bottom: 44px; flex-wrap: wrap;
+        }
+        .gal-filter button {
+            font-family: var(--font-id); font-size: 9px; letter-spacing: .22em;
+            text-transform: uppercase; padding: 11px 22px;
+            background: transparent;
+            border: 1px solid rgba(191,144,18,.28);
+            color: rgba(237,232,224,.45);
+            cursor: pointer; transition: all .25s; border-radius: 0;
+        }
+        .gal-filter button.active,
+        .gal-filter button:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(191,144,18,.08);
+        }
+
+        /* ── GALLERY ─────────────────────────────── */
+        .gallery {
+            columns: 2; column-gap: 6px;
+        }
+        @media (max-width: 700px) { .gallery { columns: 1; } }
+
+        .g-item {
+            position: relative; overflow: hidden;
+            break-inside: avoid;
+            display: block;
+            margin-bottom: 6px;
+            cursor: pointer;
+            background: var(--noir);
+        }
+        .g-item img {
+            width: 100%; height: auto;
+            display: block;
+            transition: transform .65s cubic-bezier(.4,0,.2,1), filter .4s;
+            filter: brightness(.92);
+        }
+        .g-item:hover img { transform: scale(1.025); filter: brightness(1.04); }
+        .g-item::after {
+            content: ''; position: absolute; inset: 0;
+            border: 1px solid rgba(191,144,18,0);
+            transition: border-color .3s; pointer-events: none;
+        }
+        .g-item:hover::after { border-color: rgba(191,144,18,.45); }
+
+        .g-lbl {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 44px 20px 16px;
+            background: linear-gradient(to top, rgba(10,10,10,.88), transparent);
+            transform: translateY(100%); transition: transform .4s;
+        }
+        .g-item:hover .g-lbl { transform: translateY(0); }
+        .g-lbl span {
+            font-family: var(--font-id); font-size: 9px;
+            letter-spacing: .26em; text-transform: uppercase; color: var(--gold);
+        }
+
+        .g-zoom {
+            position: absolute; top: 12px; right: 12px;
+            width: 30px; height: 30px;
+            background: rgba(10,10,10,.75);
+            border: 1px solid rgba(191,144,18,.35);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transform: scale(.8);
+            transition: opacity .3s, transform .3s;
+        }
+        .g-item:hover .g-zoom { opacity: 1; transform: scale(1); }
+        .g-zoom svg { width: 13px; height: 13px; fill: var(--gold); }
+
+        .g-item[style*="display: none"] { display: none !important; }
+
+        /* ── CTA BOTTOM ──────────────────────────── */
+        .res-cta {
+            text-align: center; margin-top: 72px;
+            display: flex; flex-direction: column; align-items: center; gap: 20px;
+        }
+        .res-cta .lead {
+            font-family: var(--font-disp); font-weight: 300; font-style: italic;
+            font-size: clamp(17px, 2vw, 24px);
+            color: rgba(237,232,224,.58);
+        }
+        .btn-gold {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #BF9012 0%, #E0B83A 50%, #BF9012 100%);
+            background-size: 200% 100%;
+            color: var(--noir);
+            font-family: var(--font-id); font-size: 10px; letter-spacing: .22em;
+            text-transform: uppercase; text-decoration: none; font-weight: 700;
+            transition: background-position .4s, transform .3s, box-shadow .3s;
+            box-shadow: 0 4px 20px rgba(191,144,18,.35);
+        }
+        .btn-gold:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(191,144,18,.5);
+        }
+        .btn-gold svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+        .disclaimer {
+            font-family: var(--font-body); font-size: 11px;
+            color: rgba(237,232,224,.25); line-height: 1.7;
+            max-width: 560px;
+        }
+
+        /* ── LIGHTBOX ────────────────────────────── */
+        .lightbox {
+            position: fixed; inset: 0; z-index: 9500;
+            background: rgba(0,0,0,.93);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity .3s;
+        }
+        .lightbox.open { opacity: 1; pointer-events: all; }
+        .lightbox img {
+            max-width: 92vw; max-height: 88vh;
+            object-fit: contain;
+            border: 1px solid rgba(191,144,18,.25);
+        }
+        .lightbox-close {
+            position: absolute; top: 22px; right: 22px;
+            width: 44px; height: 44px;
+            border: 1px solid rgba(191,144,18,.4); background: rgba(10,10,10,.8);
+            color: var(--gold); font-size: 22px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: background .2s;
+        }
+        .lightbox-close:hover { background: rgba(10,10,10,.95); }
+        .lightbox-lbl {
+            position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+            font-family: var(--font-id); font-size: 9px; letter-spacing: .22em;
+            text-transform: uppercase; color: var(--gold);
+            white-space: nowrap;
+        }
+
+        /* ── FOOTER ──────────────────────────────── */
+        footer {
+            border-top: 1px solid rgba(191,144,18,.12);
+            padding: 48px var(--px);
+            text-align: center;
+            display: flex; flex-direction: column; align-items: center; gap: 20px;
+        }
+        .ft-logo { height: 30px; width: auto; object-fit: contain; opacity: .7; }
+        .ft-text {
+            font-family: var(--font-body); font-size: 11px;
+            color: rgba(237,232,224,.28); line-height: 1.9;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── LIGHTBOX ──────────────────────────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">✕</button>
+    <img id="lightbox-img" src="" alt="">
+    <span class="lightbox-lbl" id="lightbox-lbl"></span>
+</div>
+
+<!-- ── FLOATING WA ───────────────────────────── -->
+<a href="https://wa.me/5551999283800?text=Olá!%20Vi%20os%20resultados%20da%20mastopexia%20e%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Michelle%20Brys."
+   class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Agendar Consulta</span>
+</a>
+
+<!-- ── HEADER ─────────────────────────────────── -->
+<header>
+    <img src="imagens/logo-horizontal.jpeg" alt="Michelle Brys Signature" class="hdr-logo">
+    <a href="index.html" class="hdr-back">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Voltar à página principal
+    </a>
+</header>
+
+<!-- ── RESULTADOS ─────────────────────────────── -->
+<section class="res-section">
+    <div class="res-head">
+        <span class="overline">Antes &amp; Depois</span>
+        <h1 class="res-title">Todos os Resultados</h1>
+        <p class="res-intro">Casos reais de mastopexia com e sem prótese. Cada resultado é único — assinado pela Dra. Michelle Brys.</p>
+    </div>
+
+    <p class="res-note">Imagens de pacientes reais com autorização — identidade preservada</p>
+
+    <div class="gal-filter">
+        <button class="active" data-cat="all">Todos</button>
+        <button data-cat="sem">Sem Prótese</button>
+        <button data-cat="com">Com Prótese</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+
+        <!-- ── SEM PRÓTESE ── -->
+        <div class="g-item" data-cat="sem" data-label="Mastopexia Sem Prótese">
+            <img src="Conteudo/dc87242f-8914-4951-8386-c6cf5e3cd7dd.jpg" alt="Antes e depois mastopexia sem prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Sem Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── COM PRÓTESE ── -->
+        <div class="g-item" data-cat="com" data-label="Mastopexia Com Prótese">
+            <img src="com_protese/IMG_6880.JPG" alt="Antes e depois mastopexia com prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Com Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── SEM PRÓTESE ── -->
+        <div class="g-item" data-cat="sem" data-label="Mastopexia Sem Prótese">
+            <img src="Conteudo/cd2ee851-7d85-4016-96c7-a47a12fb835a.jpg" alt="Antes e depois mastopexia sem prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Sem Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── COM PRÓTESE ── -->
+        <div class="g-item" data-cat="com" data-label="Mastopexia Com Prótese">
+            <img src="com_protese/IMG_6881.JPG" alt="Antes e depois mastopexia com prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Com Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── SEM PRÓTESE ── -->
+        <div class="g-item" data-cat="sem" data-label="Mastopexia Sem Prótese">
+            <img src="Conteudo/5AA3384B-B2B1-4C3A-8C08-8374FDFF01BF.JPG" alt="Antes e depois mastopexia sem prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Sem Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── COM PRÓTESE ── -->
+        <div class="g-item" data-cat="com" data-label="Mastopexia Com Prótese">
+            <img src="com_protese/IMG_6882.JPG" alt="Antes e depois mastopexia com prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Com Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── SEM PRÓTESE ── -->
+        <div class="g-item" data-cat="sem" data-label="Mastopexia Sem Prótese">
+            <img src="Conteudo/e166b8c4-0605-4bca-8aee-b474b7397fd1.jpg" alt="Antes e depois mastopexia sem prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Sem Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── COM PRÓTESE ── -->
+        <div class="g-item" data-cat="com" data-label="Mastopexia Com Prótese">
+            <img src="com_protese/IMG_6883.JPG" alt="Antes e depois mastopexia com prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Com Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── SEM PRÓTESE ── -->
+        <div class="g-item" data-cat="sem" data-label="Mastopexia Sem Prótese">
+            <img src="Conteudo/7fa94460-7e05-4c03-9c73-30a922434fab.jpg" alt="Antes e depois mastopexia sem prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Sem Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── COM PRÓTESE ── -->
+        <div class="g-item" data-cat="com" data-label="Mastopexia Com Prótese">
+            <img src="com_protese/IMG_6884.JPG" alt="Antes e depois mastopexia com prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Com Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── SEM PRÓTESE ── -->
+        <div class="g-item" data-cat="sem" data-label="Mastopexia Sem Prótese">
+            <img src="Conteudo/6cedd9a5-f24d-43ed-a67a-34e6cc312f82.jpg" alt="Antes e depois mastopexia sem prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Sem Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── COM PRÓTESE ── -->
+        <div class="g-item" data-cat="com" data-label="Mastopexia Com Prótese">
+            <img src="com_protese/IMG_6885.JPG" alt="Antes e depois mastopexia com prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Com Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+        <!-- ── COM PRÓTESE ── -->
+        <div class="g-item" data-cat="com" data-label="Mastopexia Com Prótese">
+            <img src="com_protese/IMG_6886.JPG" alt="Antes e depois mastopexia com prótese" loading="lazy">
+            <div class="g-lbl"><span>Mastopexia Com Prótese</span></div>
+            <div class="g-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+        </div>
+
+    </div>
+
+    <div class="res-cta">
+        <p class="lead">Pronta para escrever o seu resultado?</p>
+        <a href="https://wa.me/5551999283800?text=Olá!%20Vi%20os%20resultados%20da%20mastopexia%20e%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Michelle%20Brys."
+           class="btn-gold" target="_blank" rel="noopener">
+            <span>Agendar minha avaliação</span>
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <p class="disclaimer">Resultados individuais. As imagens exibidas são de pacientes reais que autorizaram o uso para fins educacionais e de divulgação, com identidade preservada.</p>
+    </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer>
+    <img src="imagens/logo-horizontal.jpeg" alt="Michelle Brys Signature" class="ft-logo">
+    <p class="ft-text">
+        © 2026 Michelle Brys Signature · Cirurgia Plástica · Porto Alegre — RS<br>
+        CRM-RS 24638 · RQE 19935 · Membro Titular da SBCP · Todos os direitos reservados.
+    </p>
+</footer>
+
+<script>
+    /* ── Filter ─────────────────────────────── */
+    const filterBtns = document.querySelectorAll('.gal-filter button');
+    const items = document.querySelectorAll('#gallery .g-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.cat;
+            items.forEach(item => {
+                const match = cat === 'all' || item.dataset.cat === cat;
+                item.style.display = match ? '' : 'none';
+            });
+        });
+    });
+
+    /* ── Lightbox ───────────────────────────── */
+    const lightbox  = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lightbox-img');
+    const lbLbl     = document.getElementById('lightbox-lbl');
+    const lbClose   = document.getElementById('lightbox-close');
+
+    const openLb = (src, lbl) => {
+        lbImg.src = src;
+        lbLbl.textContent = lbl;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+    const closeLb = () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+    };
+
+    document.querySelectorAll('.g-item').forEach(item => {
+        item.addEventListener('click', () => {
+            openLb(item.querySelector('img').src, item.dataset.label || '');
+        });
+    });
+
+    lbClose.addEventListener('click', closeLb);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
+
+</body>
+</html>
