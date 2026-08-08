@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta baseada na identidade visual real da Boa Vista Garden Center
+     (verde-floresta e girassol dourado do logo). */
+  --color-ivory: #fbf7f0;
+  --color-cream: #f3ecdf;
+  --color-forest-950: #10190f;
+  --color-forest-900: #16231a;
+  --color-forest-800: #1e3021;
+  --color-forest-700: #294231;
+  --color-forest-500: #3f6146;
+  --color-sage: #cdd98f;
+  --color-sage-light: #e5edc4;
+  --color-gold-400: #f2c14e;
+  --color-gold-500: #e8a93a;
+  --color-gold-600: #d97f1f;
+  --color-clay: #b5694a;
+  --color-ink: #211c15;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1da851;
+
+  --background: var(--color-ivory);
+  --foreground: var(--color-ink);
 }
 
 @theme inline {
+  --color-ivory: var(--color-ivory);
+  --color-cream: var(--color-cream);
+  --color-forest-950: var(--color-forest-950);
+  --color-forest-900: var(--color-forest-900);
+  --color-forest-800: var(--color-forest-800);
+  --color-forest-700: var(--color-forest-700);
+  --color-forest-500: var(--color-forest-500);
+  --color-sage: var(--color-sage);
+  --color-sage-light: var(--color-sage-light);
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-600: var(--color-gold-600);
+  --color-clay: var(--color-clay);
+  --color-ink: var(--color-ink);
+  --color-whatsapp: var(--color-whatsapp);
+  --color-whatsapp-dark: var(--color-whatsapp-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: var(--color-forest-950);
 }

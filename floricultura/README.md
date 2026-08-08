@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Boa Vista Garden Center — site premium
 
-## Getting Started
+Site institucional/conversão para a **Boa Vista Garden Center** (Porto Alegre,
+RS), construído com Next.js 16 (App Router), TypeScript, Tailwind CSS v4 e
+Framer Motion. Objetivo: transmitir sofisticação e confiança, e converter
+visitantes em pedidos pelo WhatsApp.
 
-First, run the development server:
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # build de produção
+npm run start   # roda o build de produção
+npm run lint    # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## O que ajustar antes de publicar
 
-## Learn More
+Tudo que é conteúdo real fica concentrado em poucos arquivos — não é
+necessário mexer nos componentes visuais para atualizar textos, preços ou
+contato.
 
-To learn more about Next.js, take a look at the following resources:
+| O que mudar | Onde |
+| --- | --- |
+| Nome, endereço, telefone/WhatsApp, horário, redes sociais, nota do Google | `src/lib/site-config.ts` |
+| Categorias da loja | `src/data/categories.ts` |
+| Produtos em destaque (nome, preço, descrição) | `src/data/products.ts` |
+| Ocasiões (cards "Para cada momento") | `src/data/occasions.ts` |
+| Perguntas frequentes | `src/data/faq.ts` |
+| Itens da galeria | `src/data/gallery.ts` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Fotos reais da loja
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Como não recebemos ainda fotos oficiais da loja, dos vasos e dos arranjos,
+todas as imagens do site (`MediaFrame`, em
+`src/components/ui/BotanicalArt.tsx`) são placeholders elegantes em
+gradiente — não fotos de banco de imagens genéricas, para não passar uma
+identidade visual que não é da loja.
 
-## Deploy on Vercel
+Para trocar por fotos reais:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Adicione as fotos em `public/images/` (ex: `hero.jpg`, `produto-orquidea.jpg`).
+2. No componente da seção (`Hero.tsx`, `FeaturedProducts.tsx`, `Gallery.tsx`,
+   `About.tsx`, `Categories.tsx`), troque `<MediaFrame ... />` por
+   `<Image src="/images/arquivo.jpg" alt="..." fill className="object-cover" />`
+   (import `next/image`), mantendo a mesma `className` de proporção/raio já
+   aplicada no elemento pai.
+3. Descreva a imagem no `alt` (SEO e acessibilidade).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Avaliações de clientes
+
+A seção de depoimentos (`src/components/Testimonials.tsx`) hoje mostra
+apenas a nota agregada real do Google (4.7, 98 avaliações), sem citar textos
+de avaliações específicas — para não inventar depoimentos que não foram
+confirmados. Se quiser citar avaliações reais, adicione um array com
+`nome`/`texto`/`nota` e renderize os cards abaixo do bloco de nota.
+
+### Horário de funcionamento
+
+O fechamento às 18h (dias úteis) foi confirmado; os demais horários em
+`site-config.ts` estão marcados como "a confirmar" — ajuste conforme o
+horário oficial de cada dia.
+
+## SEO
+
+- Metadata completa (title, description, keywords, Open Graph, Twitter Card) em `src/app/layout.tsx`.
+- Imagem Open Graph e ícone gerados dinamicamente (`src/app/opengraph-image.tsx`, `src/app/icon.tsx`) — sem depender de arquivos externos.
+- Schema.org `Florist` + `GardenStore` (JSON-LD) com endereço, telefone, horários e nota agregada.
+- `robots.ts` e `sitemap.ts` prontos — atualize a URL de produção (`siteUrl` em `layout.tsx`, `sitemap.ts`, `robots.ts`) quando o domínio final for definido.
+
+## Deploy
+
+Recomendado: [Vercel](https://vercel.com/new) — basta importar o repositório
+apontando para a pasta `floricultura/` como raiz do projeto.
